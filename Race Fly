@@ -1,0 +1,164 @@
+--Race fly 
+
+--library and setup
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Fly Race | Mars Station",
+	LoadingTitle = "Mars Station",
+	LoadingSubtitle = "by SushyDie#8830",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, 
+		FileName = "Big Hub"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "sirius", 
+        	RememberJoins = true 
+        },
+	KeySystem = true, 
+	KeySettings = {
+		Title = "Mars Station",
+		Subtitle = "Key System",
+		Note = "Join the discord for the key (the discord server don't exist yet so the key is GMK2007MARS",
+		FileName = "SiriusKey",
+		SaveKey = true,
+		GrabKeyFromSite = false, 
+		Key = "GMK2007MARS"
+	}
+})
+
+Rayfield:Notify({
+    Title = "Welcome Exploiter!",
+    Content = "This script is free and public. SushyDie#8830 is the owner of this script.",
+    Duration = 6.5,
+    Image = 4483362458,
+    Actions = { 
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("The user tapped Okay!")
+            end
+		},
+	},
+})
+
+--variable
+local i = 1
+
+
+
+--window
+
+local AutoFarm = Window:CreateTab("AutoFarm", 4483362458) 
+
+local credit = Window:CreateTab("credit", 4483362458) 
+
+
+local Section = AutoFarm:CreateSection("Autofarm")
+
+--Button 
+local Button = AutoFarm:CreateButton({
+	Name = "+1M score",
+	Callback = function()
+	 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(43.08696746826172, 6.587674617767334, -835.2455444335938)
+     wait(0.001)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(234.8924102783203, 31.82154655456543, -811.4074096679688)
+     wait(2)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200333.578125, -0.8599938750267029, -810.90869140625)
+	end,
+})
+
+local Button = AutoFarm:CreateButton({
+	Name = "+10M score",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(43.08696746826172, 6.587674617767334, -835.2455444335938)
+        wait(0.001)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(234.8924102783203, 31.82154655456543, -811.4074096679688)
+        wait(2)
+        repeat
+            i = i + 1
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(201282.203125, 500.10841369628906, -814.3768310546875)  
+            wait(0.165)
+          until i == 10
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200333.578125, -0.8599938750267029, -810.90869140625)
+          wait(0.1)
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new( -13.799177169799805, 6.587674617767334, -835.8104248046875)
+	end,
+})
+
+local Button = AutoFarm:CreateButton({
+	Name = "+20M score",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(43.08696746826172, 6.587674617767334, -835.2455444335938)
+    wait(0.001)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(234.8924102783203, 31.82154655456543, -811.4074096679688)
+    wait(2)
+    repeat
+        i = i + 1
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(201282.203125, 500.10841369628906, -814.3768310546875)  
+        wait(0.165)
+      until i == 20
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200333.578125, -0.8599938750267029, -810.90869140625)
+      wait(0.1)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new( -13.799177169799805, 6.587674617767334, -835.8104248046875)
+	end,
+})
+
+local Button = AutoFarm:CreateButton({
+	Name = "+50M score",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(43.08696746826172, 6.587674617767334, -835.2455444335938)
+        wait(0.001)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(234.8924102783203, 31.82154655456543, -811.4074096679688)
+        wait(2)
+        repeat
+            i = i + 1
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(201282.203125, 500.10841369628906, -814.3768310546875)  
+            wait(0.165)
+          until i == 50
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200333.578125, -0.8599938750267029, -810.90869140625)
+          wait(0.1)
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new( -13.799177169799805, 6.587674617767334, -835.8104248046875)  
+	end,
+})
+
+local Button = AutoFarm:CreateButton({
+	Name = "+100M score",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(43.08696746826172, 6.587674617767334, -835.2455444335938)
+        wait(0.001)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(234.8924102783203, 31.82154655456543, -811.4074096679688)
+        wait(2)
+        repeat
+            i = i + 1
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(201282.203125, 500.10841369628906, -814.3768310546875)  
+            wait(0.165)
+          until i == 100
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200333.578125, -0.8599938750267029, -810.90869140625)
+          wait(0.1)
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new( -13.799177169799805, 6.587674617767334, -835.8104248046875)  
+	end,
+})
+
+local Section = AutoFarm:CreateSection("Reset")
+
+local Button = AutoFarm:CreateButton({
+	Name = "Reset character",
+	Callback = function()
+        for i, v in pairs (game:GetService("Players"):GetPlayers()) do
+            v.Character:FindFirstChild("Humanoid").Health = 0
+        end
+    end,
+})
+
+local credit = credit:CreateParagraph({Title = "Credit", Content = "SushyDie#8830"})
+
+local credit = credit:CreateButton({
+	Name = "Destroy the interface",
+	Callback = function()
+        Rayfield:Destroy()
+    end
+})
+ 
