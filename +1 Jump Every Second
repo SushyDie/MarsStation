@@ -1,0 +1,20 @@
+--I'm the owner, this script is public and free!
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
+local w = library:CreateWindow("+1 Jump Every Second")
+local b = w:CreateFolder("auto farm")
+
+--Autofarm
+
+b:Button("WIN",function()
+    while( true )
+    do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2503.841796875, 27674.369140625, 8057.12939453125)
+    wait(1.5)
+    end
+end)
+
+--crédit
+
+b:Button("by SushyDie#8830",function()
+end)
