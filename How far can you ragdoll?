@@ -1,0 +1,87 @@
+--How far can you ragdoll?
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
+local w = library:CreateWindow("How far can you ragdoll?")
+local b = w:CreateFolder("Score")
+
+local i = 1
+
+b:Button("max your score",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23.031394958496094, 1.202086329460144, -35.293556213378906)
+    wait(0.01)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(174.521728515625, 13.603262901306152, -15.275558471679688)
+    wait(0.01)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(100000000, -25, -29.638505935668945)
+end)
+
+b:Button("auto upgrade",function()
+    while true do
+    local args = {
+    [1] = "Speed"
+    }
+
+    game:GetService("ReplicatedStorage").Upgrade:FireServer(unpack(args))
+
+    local args = {
+        [1] = "GemMulti"
+    }
+
+    game:GetService("ReplicatedStorage").Upgrade:FireServer(unpack(args))
+    wait(0.00000001)
+    end
+    
+end)
+
+b:Button("AutoFarm rebirth",function()
+    while true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23.031394958496094, 1.202086329460144, -35.293556213378906)
+        wait(0.01)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(174.521728515625, 13.603262901306152, -15.275558471679688)
+        wait(0.01)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(100000000, -25, -29.638505935668945)
+         repeat
+          i = i + 1
+         local args = {
+              [1] = "Speed"
+            }
+        
+            game:GetService("ReplicatedStorage").Upgrade:FireServer(unpack(args))
+            wait(0.000000000001)
+         until i == 1000
+         game:GetService("ReplicatedStorage").Rebirth:FireServer()
+    end
+end)
+
+b:Button("AutoFarm rebirth+",function()
+    while true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23.031394958496094, 1.202086329460144, -35.293556213378906)
+        wait(0.01)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(174.521728515625, 13.603262901306152, -15.275558471679688)
+        wait(0.01)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(100000000, -25, -29.638505935668945)
+         repeat
+          i = i + 1
+         local args = {
+              [1] = "Speed"
+            }
+        
+            game:GetService("ReplicatedStorage").Upgrade:FireServer(unpack(args))
+            wait(0.000000000001)
+         until i == 10000
+         game:GetService("ReplicatedStorage").Rebirth:FireServer()
+    end
+end)
+
+b:Button("reset character",function()
+    for i, v in pairs (game:GetService("Players"):GetPlayers()) do
+        v.Character:FindFirstChild("Humanoid").Health = 0
+    end
+end)
+
+b:Button("SushyDie#8830",function()
+
+end)
+
+
+
+
