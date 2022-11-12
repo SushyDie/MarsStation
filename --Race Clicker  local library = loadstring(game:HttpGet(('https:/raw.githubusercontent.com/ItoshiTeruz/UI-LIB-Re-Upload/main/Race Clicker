@@ -1,0 +1,82 @@
+--Race Clicker
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
+local w = library:CreateWindow("Race clicker")
+local b = w:CreateFolder("AutoWin")
+local d = w:CreateFolder("Credit")
+
+local i = 1
+
+
+b:Button("+1",function()
+    repeat
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+end)
+
+b:Button("+10",function()
+    repeat
+        i = 1 + i
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+    until  i == 10
+
+end)
+
+b:Button("+20",function()
+    repeat
+        i = 1 + i
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+    until  i == 20
+
+end)
+
+b:Button("+50",function()
+    repeat
+        i = 1 + i
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+    until  i == 50
+
+end)
+
+b:Button("+100",function()
+    repeat
+        i = 1 + i
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+    until  i == 100
+
+end)
+
+b:Button("+inf",function()
+    repeat
+        i = 1 + i
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442069.28125, 2.9999988079071045, -10.68508529663086)
+    until  i == -1
+
+end)
+
+d:Button("SushyDie#8830",function()
+  
+end)
