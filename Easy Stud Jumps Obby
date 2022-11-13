@@ -1,0 +1,36 @@
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
+local w = library:CreateWindow("Easy Stud Jumps Obby")
+local b = w:CreateFolder("score")
+local c = w:CreateFolder("teleport")
+local d = w:CreateFolder("Credit")
+
+local i = 1
+
+b:Button("Finish obby",function()
+    repeat
+        i = i + 1
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.4599609375, 1263.4996337890625, -872.4686889648438)
+    wait(0.01)
+    until i == 75
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200.61216735839844, 1266.696533203125, -970.912353515625)
+end)
+
+
+
+
+
+c:Button("Spawn",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.0001678466797, -4.500001430511475, 197.4983367919922)
+end)
+
+c:Button("Winner",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(199.97039794921875, 1266.4986572265625, -921.861083984375)
+end)
+
+c:Button("Vip",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(140.93898010253906, -4.500001430511475, 203.28244018554688)
+end)
+
+d:Button("SushyDie#8830",function()
+end)
