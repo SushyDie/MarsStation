@@ -1,20 +1,41 @@
---I'm the owner, this script is public and free!
+-- +1 jump per seconds
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
 local w = library:CreateWindow("+1 Jump Every Second")
 local b = w:CreateFolder("auto farm")
+
+
+local i = 0
 
 --Autofarm
 
 b:Button("WIN",function()
     while( true )
     do
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2503.841796875, 27674.369140625, 8057.12939453125)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(16379.841796875, 27674.369140625, 8057.12939453125)
     wait(1.5)
     end
+    while( true )
+    do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(16379.841796875, 27673.369140625, 8057.12939453125)
+    wait(1.5)
+    end
+end)
+
+--auto rebirth
+b:Button("Auto Rebirth",function()
+    repeat
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer()
+        wait(0.2)
+    until  i == 1
+    
 end)
 
 --crédit
 
 b:Button("by SushyDie#8830",function()
 end)
+
+
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer()
