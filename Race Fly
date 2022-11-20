@@ -1,3 +1,4 @@
+```lua
 --fly race 2
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
@@ -198,7 +199,7 @@ AutoFarm3()
 })
 
 local CreditsTab = Window:MakeTab({
-	Name = "Credits",
+	Name = "About",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -249,8 +250,9 @@ end
  	end    
 })
 CreditsTab:AddParagraph("credit","SushyDie#8830")
-CreditsTab:AddParagraph("next feature","AutoHatch (and craft), AutoOrb ")
-CreditsTab:AddParagraph("discontinued"," [AutoRebirth because there is now one in the game]")
+CreditsTab:AddParagraph("NEW","Teleport paradise, Autofarm Paradise [FIXED]")
+CreditsTab:AddParagraph("next feature","AutoHatch (and craft), AutoOrb, AutoRebrith ")
+CreditsTab:AddParagraph("discontinued"," nothing")
 
 OrionLib:Init()
 
@@ -289,4 +291,5 @@ PlayerHatch:AddDropdown({
 
 PlayerHatch:AddParagraph("Comming soon","this feature is not available at the moment")
 FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
+```
 
