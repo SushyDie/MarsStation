@@ -1,132 +1,292 @@
-print ("Sucess!")
+--fly race 2
 
-local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ItoshiTeruz/UI-LIB-Re-Upload/main/Lib.lua')))() --library
-local w = library:CreateWindow("Step 1")
-local x = library:CreateWindow("Step 2")
-local y = library:CreateWindow("Step 3")
-local z = library:CreateWindow("AutoFarm")
-local b = w:CreateFolder("How many laps?")
-local e = z:CreateFolder("Score")
-local c = x:CreateFolder("Add money")
-local d = y:CreateFolder("Credit")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = true, ConfigFolder = "FlyRaceMarsStationSushy"})
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.83853149414062, 17.662487030029297, -128893.546875)
-    wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84162.1953125, -100.11860656738281, -128925.5859375) 
+OrionLib:MakeNotification({
+	Name = "Welcome!",
+	Content = "AutoFarm, AutoHatch, AutoOrb, Teleport, NoFall and more..",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 
-local i = 0
-local o = 1
-local a = 11
 
-b:Button("1 laps",function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-wait()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-wait(0.001)
-print ("1 laps")
-end)
 
-b:Button("10 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 10 or i == 11 or i == 12 
-    print ("10 laps")
-end)
+_G.AutoFarm2 = false
+_G.AutoFarm = false
+_G.AutoFarm3 = false
 
-b:Button("20 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 20
-    print ("20 laps")
-end)
+function AutoFarm()
+    while _G.AutoFarm == true do 
+       local tp_table = {
+            tp1 = Vector3.new(350, 100, -800),
+            tp3 = Vector3.new(230000402.1016, 2800.942566, -836.438965, 1, 1.51065606e-07, 4.12622952e-14, -1.51065606e-07, 1, 6.02517289e-08, -3.21603299e-14, -6.02517289e-08, 1),
+        }
+        
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function tween_tp(v)
+            if lp.Character and
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                 a.Completed:Wait()
+            end
+        end
+        
+        tween_tp(tp_table.tp1)
+    while _G.AutoFarm == true do
+        tween_tp(tp_table.tp3)
+end
+end
+end
 
-b:Button("50 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 50
-    print ("50 laps")
-end)
+function AutoFarm2()
+    while _G.AutoFarm2 == true do 
+       local tp_table = {
+            tp4 = Vector3.new(180, 60, -128893.43),
+            tp5 = Vector3.new(999999999999999999999999999999999999, 100, -1836.438965),
+        }
+        
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function tween_tp(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                 a.Completed:Wait()
+            end
+        end
+        
+        tween_tp(tp_table.tp4)
+    while _G.AutoFarm2 == true do 
+        tween_tp(tp_table.tp5)
+end
+end
+end
 
-b:Button("100 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 100
-    print ("100 laps")
-end)
+function AutoFarm3()
+    while _G.AutoFarm3 == true do 
+       local tp_table = {
+            tp6 = Vector3.new(38, 20, 104731),--255.46348571777344, -0.8505219221115112, 104731.46875
+            tp7 = Vector3.new(999999999999999999999999999999999999, 100, -1836.438965), --999999999999999999999999999999999999, 100, 104716.875 
+        }
+        
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function tween_tp(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                 a.Completed:Wait()
+            end
+        end
+        
+        tween_tp(tp_table.tp6)
+    while _G.AutoFarm3 == true do 
+        tween_tp(tp_table.tp7)
+end
+end
+end
 
-b:Button("1 000 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 1000
-    print ("1 000 laps")
-end)
 
-b:Button("10 000 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 10000
-    print ("10 000 laps")
-end)
 
-b:Button("100 000 laps",function()
-    repeat 
-          i = i + 1
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-         wait(0.001)
-    until i == 100000
-    print ("100 000laps")
-end)
+local FarmTab = Window:MakeTab({
+	Name = "AutoFarm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-c:Button("Redeem",function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.83853149414062, 17.662487030029297, -128893.546875)
-    wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84162.1953125, -5.11860656738281, -128925.5859375) 
-    wait(0.001)
-    print ("Redeem button pressed")
- end)
+local PlayerHatch = Window:MakeTab({
+	Name = "AutoHatch",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
- d:Button("SushyDie#8830",function()
-    print ("useless button")
- end)
+local PlayerMisc = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
- e:Button("Infinite money",function()
-    repeat
-    o = o + 1
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(202105.4375, 645.8846435546875, -128941.57812)
-         wait()
-          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.92897033691406, 4.164401054382324, -128888.6796875)
-          wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(154.83853149414062, 17.662487030029297, -128893.546875)
-    wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84162.1953125, -100.11860656738281, -128925.5859375)
-    wait(0.7) 
-    until o == -1
-    print ("How did you get this print?")
-end)
+local PlayerTeleport = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+PlayerMisc:AddTextbox({
+	Name = "Name Changer",
+	Default = "Write Name",
+	TextDisappear = false,
+	Callback = function(Value)
+while game:IsLoaded() == false do wait() end
+local fakeplr = {["Name"] = (Value), ["UserId"] = "3742966445"}
+local lplr = game:GetService("Players").LocalPlayer
+
+local function plrthing(obj, property)
+    for i,v in pairs(game:GetService("Players"):GetChildren()) do
+        if v ~= lplr then
+        else
+            obj[property] = obj[property]:gsub(v.Name, fakeplr["Name"])
+            obj[property] = obj[property]:gsub(v.DisplayName, fakeplr["Name"])
+            obj[property] = obj[property]:gsub(v.UserId, fakeplr["UserId"])
+        end
+    end
+end
+
+local function newobj(v)
+    if v:IsA("TextLabel") or v:IsA("TextButton") then
+        plrthing(v, "Text")
+        v:GetPropertyChangedSignal("Text"):connect(function()
+            plrthing(v, "Text")
+        end)
+    end
+    if v:IsA("ImageLabel") then
+        plrthing(v, "Image")
+        v:GetPropertyChangedSignal("Image"):connect(function()
+            plrthing(v, "Image")
+        end)
+    end
+end
+
+for i,v in pairs(game:GetDescendants()) do
+    newobj(v)
+end
+game.DescendantAdded:connect(newobj)
+end	
+})
+
+FarmTab:AddToggle({
+	Name = "Earth World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm = Value 
+AutoFarm() 
+    end
+})
+FarmTab:AddToggle({
+	Name = "Space World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm2 = Value 
+AutoFarm2() 
+    end
+})
+
+FarmTab:AddToggle({
+	Name = "Paradise World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm3 = Value 
+AutoFarm3() 
+    end
+})
+
+local CreditsTab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+PlayerMisc:AddButton({
+	Name = "Refresh Player",
+	Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
+    end
+})
+
+PlayerMisc:AddButton({
+	Name = "Anti Fall",
+	Callback = function()
+Float_Height = "100"
+
+local i=1
+G=game;
+_=wait;
+p=G:GetService("Players").LocalPlayer.Character
+p:FindFirstChild("Humanoid").HipHeight = Float_Height
+_(1.5);
+t=.4;
+n=2;
+for i=1,i do
+repeat p:FindFirstChild("Humanoid").HipHeight=Float_Height-n _(t)p:FindFirstChild("Humanoid").HipHeight=Float_Height+n _(t) until
+p:FindFirstChild("Humanoid").Health == 0
+end
+ 	end    
+})
+PlayerMisc:AddButton({
+	Name = "Disabel AntiFall [glitched]",
+	Callback = function()
+Float_Height = "0"
+
+local i=1
+G=game;
+_=wait;
+p=G:GetService("Players").LocalPlayer.Character
+p:FindFirstChild("Humanoid").HipHeight = Float_Height
+_(1.5);
+t=.4;
+n=2;
+for i=1,i do
+repeat p:FindFirstChild("Humanoid").HipHeight=Float_Height-n _(t)p:FindFirstChild("Humanoid").HipHeight=Float_Height+n _(t)
+until p:FindFirstChild("Humanoid").Health == 0
+end
+ 	end    
+})
+CreditsTab:AddParagraph("credit","SushyDie#8830")
+CreditsTab:AddParagraph("next feature","AutoHatch (and craft), AutoOrb ")
+CreditsTab:AddParagraph("discontinued"," [AutoRebirth because there is now one in the game]")
+
+OrionLib:Init()
+
+task.wait(1)
+
+
+PlayerTeleport:AddButton({
+	Name = "Space world",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-61.172637939453125, 4.164401054382324, -128892.3046875)
+    end
+})
+
+PlayerTeleport:AddButton({
+	Name = "Earth world",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19.69454574584961, 6.752067565917969, -833.76171875)
+    end
+})
+
+PlayerTeleport:AddButton({
+	Name = "Paradise world",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
+    end
+})
+
+PlayerHatch:AddDropdown({
+	Name = "Egg",
+	Default = "1",
+	Options = {"-", "-"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+PlayerHatch:AddParagraph("Comming soon","this feature is not available at the moment")
+FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
 
