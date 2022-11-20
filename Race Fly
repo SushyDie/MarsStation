@@ -291,3 +291,15 @@ PlayerHatch:AddDropdown({
 PlayerHatch:AddParagraph("Comming soon","this feature is not available at the moment")
 FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
 
+PlayerHatch:AddButton({
+	Name = "Hula",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.618839263916016, 5.025186061859131, 104799.453125)
+    local args = {
+         [1] = "Hula",
+         [2] = "Auto"
+    }
+
+    game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
+end
+})
