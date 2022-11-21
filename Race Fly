@@ -279,27 +279,60 @@ PlayerTeleport:AddButton({
     end
 })
 
+
+
+
+
+
+FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
+
+PlayerHatch:AddParagraph("BETA","two egg")
+
+_G.AutoHatch = true
+_G.SelectEgg = "Beach Egg"
+
+function AutoHatch()
+    while _G.AutoHatch == true do
+
+    local args = {
+         [1] = _G.SelectEgg,
+         [2] = "Single"
+     }
+
+        game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
+        wait()
+    end
+end
+
+
+
 PlayerHatch:AddDropdown({
 	Name = "Egg",
-	Default = "1",
-	Options = {"-", "-"},
-	Callback = function(Value)
-		print(Value)
+	Default = "Beach",
+	Options = {"Beach", "Volcano", "IceCream", "Space", "Slushy", "Toy",},
+    Callback = function(Value)
+        _G.SelectEgg = Value
+        print(_G.SelectEgg)
 	end    
 })
 
-PlayerHatch:AddParagraph("Comming soon","this feature is not available at the moment")
-FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
+
+PlayerHatch:AddToggle({
+	Name = "Auto Hatch",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoHatch = Value  
+        AutoHatch()
+	end    
+})
 
 PlayerHatch:AddButton({
-	Name = "Hula",
+	Name = "Teleport to the selected egg",
 	Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.618839263916016, 5.025186061859131, 104799.453125)
-    local args = {
-         [1] = "Hula",
-         [2] = "Auto"
-    }
-
-    game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
-end
+        if _G.SelectEgg == "Beach" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.575231552124023, 6.933097839355469, -762.3042602539062) end
+        if _G.SelectEgg == "Volcano" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.604418754577637, 6.933212757110596, -763.6781616210938) end
+    end
 })
+
+
+
