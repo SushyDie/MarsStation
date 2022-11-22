@@ -1,21 +1,25 @@
 --fly race 2
 
+--lib setup
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = true, ConfigFolder = "FlyRaceMarsStationSushy"})
 
 OrionLib:MakeNotification({
 	Name = "Welcome!",
-	Content = "AutoFarm, AutoHatch, AutoOrb, Teleport, NoFall and more..",
+	Content = "AutoFarm, AutoHatch, AutoCraft, AutoOrb, Teleport, NoFall and more..",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
 
-
-
+--variables
 _G.AutoFarm2 = false
 _G.AutoFarm = false
 _G.AutoFarm3 = false
+_G.AutoCraft = true
+_G.AutoHatch = true
+_G.SelectEgg = "Beach Egg"
 
+--function
 function AutoFarm()
     while _G.AutoFarm == true do 
        local tp_table = {
@@ -103,8 +107,36 @@ end
 end
 end
 
+function AutoCraft()
+    while  _G.AutoCraft == true do 
 
+        local args = {
+            [1] = "CraftAll",
+            [2] = {
+        ["PetID"] = 0
+    }
+}
 
+game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+
+        wait(1)
+    end
+end
+
+function AutoHatch()
+    while _G.AutoHatch == true do
+
+    local args = {
+         [1] = _G.SelectEgg,
+         [2] = "Single"
+     }
+
+        game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
+        wait()
+    end
+end
+
+--Window
 local FarmTab = Window:MakeTab({
 	Name = "AutoFarm",
 	Icon = "rbxassetid://4483345998",
@@ -112,7 +144,7 @@ local FarmTab = Window:MakeTab({
 })
 
 local PlayerHatch = Window:MakeTab({
-	Name = "AutoHatch",
+	Name = "Egg ",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -129,6 +161,107 @@ local PlayerTeleport = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local CreditsTab = Window:MakeTab({
+	Name = "About",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+--AutoFarm features
+local FastAutoFarm = FarmTab:AddSection({
+	Name = "Fast AutoFarm"
+})
+
+FarmTab:AddToggle({
+	Name = "Earth World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm = Value 
+AutoFarm() 
+    end
+})
+FarmTab:AddToggle({
+	Name = "Space World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm2 = Value 
+AutoFarm2() 
+    end
+})
+
+FarmTab:AddToggle({
+	Name = "Paradise World",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm3 = Value 
+AutoFarm3() 
+    end
+})
+
+FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
+
+local StudAutoFarm = FarmTab:AddSection({
+	Name = "Stud AutoFarm"
+})
+
+--Egg features
+local AutoHatchegg = PlayerHatch:AddSection({
+	Name = "AutoHatch"
+})
+
+PlayerHatch:AddDropdown({
+	Name = "Egg",
+	Default = "Beach",
+	Options = {"Beach", "Volcano", "IceCream", "Space", "Slushy", "Toy", "Alien", "Rocket", "Saturn", "Surf", "Tropical", "Hula",},
+    Callback = function(Value)
+        _G.SelectEgg = Value
+        print(_G.SelectEgg)
+	end    
+})
+
+
+PlayerHatch:AddToggle({
+	Name = "Auto Hatch",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoHatch = Value  
+        AutoHatch()
+	end    
+})
+
+PlayerHatch:AddButton({
+	Name = "Teleport to the selected egg",
+	Callback = function()
+        if _G.SelectEgg == "Beach" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.575231552124023, 6.933097839355469, -762.3042602539062) end
+        if _G.SelectEgg == "Volcano" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.604418754577637, 6.933212757110596, -763.6781616210938) end
+        if _G.SelectEgg == "IceCream" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.538187026977539, 6.933170795440674, -762.633544921875) end
+        if _G.SelectEgg == "Space" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10.07888126373291, 6.9331464767456055, -906.6640014648438) end
+        if _G.SelectEgg == "Slushy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.356639862060547, 6.933169841766357, -906.4921875) end
+        if _G.SelectEgg == "Toy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.522878646850586, 6.933140277862549, -906.8379516601562) end
+        if _G.SelectEgg == "Alien" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(55.149688720703125, 5.010212421417236, -128812.6875) end
+        if _G.SelectEgg == "Rocket" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(37.760475158691406, 5.010287284851074, -128812.078125) end
+        if _G.SelectEgg == "Saturn" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(19.1894588470459, 5.010261058807373, -128814.109375) end
+        if _G.SelectEgg == "Surf" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-21.651273727416992, 5.025138854980469, 104799.2890625) end
+        if _G.SelectEgg == "Tropical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.0261116027832, 5.025054454803467, 104799.40625) end
+        if _G.SelectEgg == "Hula" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.852935791015625, 5.02518892288208, 104798.5859375) end
+    end
+})
+
+local AutoCraftegg = PlayerHatch:AddSection({
+	Name = "Other"
+})
+
+PlayerHatch:AddToggle({
+	Name = "Auto Craft",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoCraft = Value  
+        AutoCraft()
+	end    
+})
+
+--Misc features
 PlayerMisc:AddTextbox({
 	Name = "Name Changer",
 	Default = "Write Name",
@@ -169,38 +302,6 @@ for i,v in pairs(game:GetDescendants()) do
 end
 game.DescendantAdded:connect(newobj)
 end	
-})
-
-FarmTab:AddToggle({
-	Name = "Earth World",
-	Default = false,
-	Callback = function(Value)
-_G.AutoFarm = Value 
-AutoFarm() 
-    end
-})
-FarmTab:AddToggle({
-	Name = "Space World",
-	Default = false,
-	Callback = function(Value)
-_G.AutoFarm2 = Value 
-AutoFarm2() 
-    end
-})
-
-FarmTab:AddToggle({
-	Name = "Paradise World",
-	Default = false,
-	Callback = function(Value)
-_G.AutoFarm3 = Value 
-AutoFarm3() 
-    end
-})
-
-local CreditsTab = Window:MakeTab({
-	Name = "About",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
 })
 
 PlayerMisc:AddButton({
@@ -248,15 +349,11 @@ until p:FindFirstChild("Humanoid").Health == 0
 end
  	end    
 })
-CreditsTab:AddParagraph("credit","SushyDie#8830")
-CreditsTab:AddParagraph("NEW","Teleport paradise, Autofarm Paradise [FIXED]")
-CreditsTab:AddParagraph("next feature","AutoHatch (and craft), AutoOrb, AutoRebrith ")
-CreditsTab:AddParagraph("discontinued"," nothing")
 
-OrionLib:Init()
-
-task.wait(1)
-
+--teleport features
+local Teleport = PlayerTeleport:AddSection({
+	Name = "World"
+})
 
 PlayerTeleport:AddButton({
 	Name = "Space world",
@@ -279,60 +376,23 @@ PlayerTeleport:AddButton({
     end
 })
 
+--Credit features
+CreditsTab:AddParagraph("Credit","SushyDie#8830, DM me for suggestion!")
 
-
-
-
-
-FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
-
-PlayerHatch:AddParagraph("BETA","two egg")
-
-_G.AutoHatch = true
-_G.SelectEgg = "Beach Egg"
-
-function AutoHatch()
-    while _G.AutoHatch == true do
-
-    local args = {
-         [1] = _G.SelectEgg,
-         [2] = "Single"
-     }
-
-        game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
-        wait()
-    end
-end
-
-
-
-PlayerHatch:AddDropdown({
-	Name = "Egg",
-	Default = "Beach",
-	Options = {"Beach", "Volcano", "IceCream", "Space", "Slushy", "Toy",},
-    Callback = function(Value)
-        _G.SelectEgg = Value
-        print(_G.SelectEgg)
-	end    
-})
-
-
-PlayerHatch:AddToggle({
-	Name = "Auto Hatch",
-	Default = false,
-	Callback = function(Value)
-        _G.AutoHatch = Value  
-        AutoHatch()
-	end    
-})
-
-PlayerHatch:AddButton({
-	Name = "Teleport to the selected egg",
+CreditsTab:AddButton({
+	Name = "Copy My Discord",
 	Callback = function()
-        if _G.SelectEgg == "Beach" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.575231552124023, 6.933097839355469, -762.3042602539062) end
-        if _G.SelectEgg == "Volcano" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.604418754577637, 6.933212757110596, -763.6781616210938) end
+        setclipboard("SushyDie#8830")
     end
 })
 
+CreditsTab:AddParagraph("NEW","Teleport paradise, Autofarm Paradise , AutoHatch, Autocraft")
 
+CreditsTab:AddParagraph("next feature","Auto Orb, AutoRebrith 1 lap loop Autofarm")
 
+CreditsTab:AddParagraph("discontinued"," nothing for the moment")
+
+--Finish lib
+OrionLib:Init()
+
+task.wait(1)
