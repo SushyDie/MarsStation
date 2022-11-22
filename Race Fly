@@ -6,7 +6,7 @@ local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race
 
 OrionLib:MakeNotification({
 	Name = "Welcome!",
-	Content = "AutoFarm, AutoHatch, AutoCraft, AutoOrb, Teleport, NoFall and more..",
+	Content = "AutoFarm, AutoHatch, AutoCraft, AutoOrb, Teleport, Auto Rebirth, NoFall and more..",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -18,6 +18,9 @@ _G.AutoFarm3 = false
 _G.AutoCraft = true
 _G.AutoHatch = true
 _G.SelectEgg = "Beach Egg"
+
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
 
 --function
 function AutoFarm()
@@ -169,6 +172,54 @@ local CreditsTab = Window:MakeTab({
 
 
 --AutoFarm features
+local AutoOrb= FarmTab:AddSection({
+	Name = "Other"
+})
+
+FarmTab:AddToggle({
+	Name = "Collect Orb",
+	Default = false,
+	Callback = function(bool)
+        getgenv().CollectOrb = bool
+
+        task.spawn(function()
+            while CollectOrb and task.wait() do
+                pcall(function()
+                    for i,v in pairs(game.Workspace.Camera:GetChildren()) do
+                        if v:IsA("Part") and v.Orb.Item.Image ~= "rbxassetid://11411247929" then
+                            local hrp = lp.Character.HumanoidRootPart
+                            v.Transparency = 1
+                            v.CanCollide = false
+                            hrp.CFrame = v.CFrame + Vector3.new(0, 5, 0)
+                            task.wait(.1)
+                        end
+                    end
+                end)
+            end
+        end)
+    end
+})
+
+FarmTab:AddToggle({
+	Name = "Auto Rebirth",
+	Default = false,
+	Callback = function(bool)
+        getgenv().AutoRebirth = bool
+    
+        task.spawn(function()
+            while AutoRebirth and task.wait() do
+                if lp.PlayerGui.Main.SideTabs.Big.Rebirths.Main.Unchecked.Visible then
+                    click(lp.PlayerGui.Main.SideTabs.Big.Rebirths)
+                    task.wait(.5)
+                    click(lp.PlayerGui.Rebirths.Main.Bottom.Confirm)
+                end
+            end
+        end)
+    end
+})
+
+FarmTab:AddParagraph("Beta","The Auto Rebirth is in testing")
+
 local FastAutoFarm = FarmTab:AddSection({
 	Name = "Fast AutoFarm"
 })
@@ -387,9 +438,9 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","Teleport paradise, Autofarm Paradise , AutoHatch, Autocraft")
+CreditsTab:AddParagraph("NEW","Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB")
 
-CreditsTab:AddParagraph("next feature","Auto Orb, AutoRebrith 1 lap loop Autofarm")
+CreditsTab:AddParagraph("next feature"," AutoRebrith, 1 lap loop Autofarm")
 
 CreditsTab:AddParagraph("discontinued"," nothing for the moment")
 
@@ -399,3 +450,6 @@ OrionLib:Init()
 task.wait(1)
 
 -- NOTE: AUTO ORB SPEED AND JUMPPOWER
+
+--test features
+
