@@ -221,14 +221,6 @@ PlayerHatch:AddDropdown({
 })
 
 
-PlayerHatch:AddToggle({
-	Name = "Auto Hatch",
-	Default = false,
-	Callback = function(Value)
-        _G.AutoHatch = Value  
-        AutoHatch()
-	end    
-})
 
 PlayerHatch:AddButton({
 	Name = "Teleport to the selected egg",
@@ -246,6 +238,15 @@ PlayerHatch:AddButton({
         if _G.SelectEgg == "Tropical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.0261116027832, 5.025054454803467, 104799.40625) end
         if _G.SelectEgg == "Hula" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.852935791015625, 5.02518892288208, 104798.5859375) end
     end
+})
+
+PlayerHatch:AddToggle({
+	Name = "Auto Hatch",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoHatch = Value  
+        AutoHatch()
+	end    
 })
 
 local AutoCraftegg = PlayerHatch:AddSection({
@@ -396,3 +397,5 @@ CreditsTab:AddParagraph("discontinued"," nothing for the moment")
 OrionLib:Init()
 
 task.wait(1)
+
+-- NOTE: AUTO ORB SPEED AND JUMPPOWER
