@@ -15,6 +15,7 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.AutoEquipBest = true
 _G.Barrier = true
 _G.AutoFarm2 = false
 _G.AutoFarm = false
@@ -371,19 +372,31 @@ PlayerHatch:AddDropdown({
 PlayerHatch:AddButton({
 	Name = "Teleport to the selected egg",
 	Callback = function()
-        if _G.SelectEgg == "Beach" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.575231552124023, 6.933097839355469, -762.3042602539062) end
-        if _G.SelectEgg == "Volcano" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.604418754577637, 6.933212757110596, -763.6781616210938) end
-        if _G.SelectEgg == "IceCream" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.538187026977539, 6.933170795440674, -762.633544921875) end
-        if _G.SelectEgg == "Space" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10.07888126373291, 6.9331464767456055, -906.6640014648438) end
-        if _G.SelectEgg == "Slushy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.356639862060547, 6.933169841766357, -906.4921875) end
-        if _G.SelectEgg == "Toy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.522878646850586, 6.933140277862549, -906.8379516601562) end
-        if _G.SelectEgg == "Alien" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(55.149688720703125, 5.010212421417236, -128812.6875) end
-        if _G.SelectEgg == "Rocket" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(37.760475158691406, 5.010287284851074, -128812.078125) end
-        if _G.SelectEgg == "Saturn" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(19.1894588470459, 5.010261058807373, -128814.109375) end
-        if _G.SelectEgg == "Surf" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-21.651273727416992, 5.025138854980469, 104799.2890625) end
-        if _G.SelectEgg == "Tropical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.0261116027832, 5.025054454803467, 104799.40625) end
-        if _G.SelectEgg == "Hula" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.852935791015625, 5.02518892288208, 104798.5859375) end
-    end --Ugly script
+        if _G.SelectEgg == "Beach" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.575231552124023, 6.933097839355469, -762.3042602539062) 
+         elseif
+         _G.SelectEgg == "Volcano" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.604418754577637, 6.933212757110596, -763.6781616210938) 
+         elseif
+         _G.SelectEgg == "IceCream" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.538187026977539, 6.933170795440674, -762.633544921875) 
+         elseif
+         _G.SelectEgg == "Space" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10.07888126373291, 6.9331464767456055, -906.6640014648438) 
+         elseif
+         _G.SelectEgg == "Slushy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6.356639862060547, 6.933169841766357, -906.4921875)
+         elseif
+         _G.SelectEgg == "Toy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25.522878646850586, 6.933140277862549, -906.8379516601562)
+         elseif
+         _G.SelectEgg == "Alien" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(55.149688720703125, 5.010212421417236, -128812.6875)
+         elseif
+         _G.SelectEgg == "Rocket" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(37.760475158691406, 5.010287284851074, -128812.078125)
+         elseif
+         _G.SelectEgg == "Saturn" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(19.1894588470459, 5.010261058807373, -128814.109375)
+         elseif
+         _G.SelectEgg == "Surf" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-21.651273727416992, 5.025138854980469, 104799.2890625)
+         elseif
+         _G.SelectEgg == "Tropical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.0261116027832, 5.025054454803467, 104799.40625)
+         elseif
+         _G.SelectEgg == "Hula" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.852935791015625, 5.02518892288208, 104798.5859375)
+        end
+    end 
 })
 
 PlayerHatch:AddToggle({
@@ -407,6 +420,28 @@ PlayerHatch:AddToggle({
         AutoCraft()
 	end    
 })
+
+PlayerHatch:AddToggle({
+	Name = "AutoEquip Best",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoEquipBest = Value  
+        AutoHatch()
+	end    
+})
+
+function AutoHatch()
+    while _G.AutoEquipBest == true do
+        local args = {
+            [1] = "EquipBest",
+            [2] = {
+                ["PetID"] = 0
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+    end
+end
 
 --Misc features
 PlayerMisc:AddTextbox({
@@ -570,7 +605,7 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","ANTI-AFK, Loop World, Single/Triple egg, Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB [BETA]")
+CreditsTab:AddParagraph("NEW","ANTI-AFK, StudFarm, Single/Triple egg, Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB [BETA]")
 
 CreditsTab:AddParagraph("next feature","AutoRebrith")
 
