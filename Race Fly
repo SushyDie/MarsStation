@@ -152,7 +152,7 @@ function StudFarm3()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
 wait(0.78)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150311.890625, -4.7241532802581787, -690.9763793945312)
-wait(2.2)
+wait(_G.StudWait)
     end
 end
 
@@ -161,7 +161,7 @@ function StudFarm2()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
 wait(0.78)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150311.890625, -4.7241532802581787, -690.9763793945312)
-wait(2.2)
+wait(_G.StudWait)
     end
 end
 
@@ -170,7 +170,7 @@ function StudFarm1()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
 wait(0.78)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150311.890625, -4.7241532802581787, -690.9763793945312)
-wait(2.2)
+wait(_G.StudWait)
     end
 end
 
@@ -326,6 +326,19 @@ FarmTab:AddToggle({
         _G.StudFarm3 = Value 
           StudFarm3()
 end
+})
+
+FarmTab:AddSlider({
+	Name = "Speed Farm",
+	Min = 2,
+	Max = 10,
+	Default = 3,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		_G.StudWait = Value
+	end    
 })
 
 FarmTab:AddParagraph("IMPORTANT","You must first unlock and be in the zone for this to work")
