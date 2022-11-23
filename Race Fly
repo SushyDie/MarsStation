@@ -185,6 +185,20 @@ function Barrier()
      end
 end
 
+function AutoEquipB()
+    while _G.AutoEquipBest == true do
+        local args = {
+            [1] = "EquipBest",
+            [2] = {
+                ["PetID"] = 0
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+        wait(1)
+    end
+end
+
 --Window
 local FarmTab = Window:MakeTab({
 	Name = "AutoFarm",
@@ -426,22 +440,9 @@ PlayerHatch:AddToggle({
 	Default = false,
 	Callback = function(Value)
         _G.AutoEquipBest = Value  
-        AutoHatch()
+        AutoEquipB()
 	end    
 })
-
-function AutoHatch()
-    while _G.AutoEquipBest == true do
-        local args = {
-            [1] = "EquipBest",
-            [2] = {
-                ["PetID"] = 0
-            }
-        }
-        
-        game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
-    end
-end
 
 --Misc features
 PlayerMisc:AddTextbox({
