@@ -578,16 +578,16 @@ local Teleport = PlayerTeleport:AddSection({
 })
 
 PlayerTeleport:AddButton({
-	Name = "Space world",
+	Name = "Earth world",
 	Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-61.172637939453125, 4.164401054382324, -128892.3046875)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19.69454574584961, 6.752067565917969, -833.76171875)
     end
 })
 
 PlayerTeleport:AddButton({
-	Name = "Earth world",
+	Name = "Space world",
 	Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19.69454574584961, 6.752067565917969, -833.76171875)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-61.172637939453125, 4.164401054382324, -128892.3046875)
     end
 })
 
@@ -604,6 +604,12 @@ CreditsTab:AddParagraph("Credit","SushyDie#8830, DM me for suggestion!")
 CreditsTab:AddButton({
 	Name = "Copy My Discord",
 	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Copied!",
+            Content = "Copied with success",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
         setclipboard("SushyDie#8830")
     end
 })
