@@ -1,4 +1,4 @@
---fly race V2.1
+--fly race V3
 
 --[[
 
@@ -6,6 +6,13 @@
 █░░█ █░░█     █░░█ █░░█ ░░█░░     ▀▀█ ░░█░░ █▀▀ █▄▄█ █░░       █░▀░█ █▄▄█     ▀▀█ █░░ █▄▄▀ ▀█▀ █░░█ ░░█░░
 ▀▀▀░ ▀▀▀▀     ▀░░▀ ▀▀▀▀ ░░▀░░     ▀▀▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀       ▀░░░▀ ▄▄▄█     ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀ █▀▀▀ ░░▀░░
 
+▀▀█▀▀ █░░█ ░▀░ █▀▀   █▀▀ █▀▀ ░▀░ █▀▀█ █▀▀█ ▀▀█▀▀   ░▀░ █▀▀   █▀▀█ █░░█ █▀▀▄ █░░ ░▀░ █▀▀   █░░░█ ░▀░ ▀▀█▀▀ █░░█ █▀▀█ █░░█ ▀▀█▀▀   █░█ █▀▀ █░░█
+░░█░░ █▀▀█ ▀█▀ ▀▀█   ▀▀█ █░░ ▀█▀ █▄▄▀ █░░█ ░░█░░   ▀█▀ ▀▀█   █░░█ █░░█ █▀▀▄ █░░ ▀█▀ █░░   █▄█▄█ ▀█▀ ░░█░░ █▀▀█ █░░█ █░░█ ░░█░░   █▀▄ █▀▀ █▄▄█
+░░▀░░ ▀░░▀ ▀▀▀ ▀▀▀   ▀▀▀ ▀▀▀ ▀▀▀ ▀░▀▀ █▀▀▀ ░░▀░░   ▀▀▀ ▀▀▀   █▀▀▀ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀▀▀ ▀▀▀   ░▀░▀░ ▀▀▀ ░░▀░░ ▀░░▀ ▀▀▀▀ ░▀▀▀ ░░▀░░   ▀░▀ ▀▀▀ ▄▄▄█
+
+█▀▀ █▀▀█   █▀▀▄ █▀▀   █▀▀▄ ░▀░ █▀▀ █▀▀   █▀▀█ █▀▀▄ █▀▀▄   █▀▀▄ █▀▀█ █▀▀▄ █ ▀▀█▀▀   █▀▀ █▀▀█ █▀▀█ █░░█   ░▀░ ▀▀█▀▀   █
+▀▀█ █░░█   █▀▀▄ █▀▀   █░░█ ▀█▀ █░░ █▀▀   █▄▄█ █░░█ █░░█   █░░█ █░░█ █░░█ ░ ░░█░░   █░░ █░░█ █░░█ █▄▄█   ▀█▀ ░░█░░   ▀
+▀▀▀ ▀▀▀▀   ▀▀▀░ ▀▀▀   ▀░░▀ ▀▀▀ ▀▀▀ ▀▀▀   ▀░░▀ ▀░░▀ ▀▀▀░   ▀▀▀░ ▀▀▀▀ ▀░░▀ ░ ░░▀░░   ▀▀▀ ▀▀▀▀ █▀▀▀ ▄▄▄█   ▀▀▀ ░░▀░░   ▄
 ]]
 
 --lib setup
@@ -19,14 +26,14 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
-
+--tp! 1 3 4 5 6 7 
 
 --variables
 
 _G.AutoEquipBest = true
 _G.Barrier = true
-_G.AutoFarm2 = false
 _G.AutoFarm = false
+_G.AutoFarm2 = false
 _G.AutoFarm3 = false
 _G.AutoCraft = true
 _G.AutoHatch = true
@@ -35,11 +42,96 @@ _G.StudFarm1 = true
 _G.StudFarm2 = true
 _G.StudFarm3 = true
 _G.withST = true
+_G.OptiFarm1 = true
+_G.OptiFarm2 = true
+_G.OptiFarm3 = true
 
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 
 --function
+
+function Optimethod1()
+    while _G.OptiFarm1 == true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
+        wait(3)
+    end
+end
+
+function Optimethod2()
+    while _G.OptiFarm2 == true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
+        wait(3)
+    end
+end
+
+function Optimethod3()
+    while _G.OptiFarm3 == true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
+        wait(3)
+    end
+end
+
 function AutoFarm()
     while _G.AutoFarm == true do 
        local tp_table = {
@@ -185,9 +277,9 @@ end
 
 function Barrier()
     while _G.Barrier == true do
-        Game.Workspace.Worlds:FindForChild("1").MainBarrier.CanCollide = false
-        Game.Workspace.Worlds:FindForChild("2").MainBarrier.CanCollide = false
-        Game.Workspace.Worlds:FindForChild("3").MainBarrier.CanCollide = false
+        game:GetService("Workspace").Worlds.FindForChild("1").MainBarrier.CanCollide = false
+        game:GetService("Workspace").Worlds.FindForChild("2").MainBarrier.CanCollide = false
+        game:GetService("Workspace").Worlds.FindForChild("3").MainBarrier.CanCollide = false
         wait(1)
         
      end
@@ -290,7 +382,7 @@ FarmTab:AddToggle({
 FarmTab:AddParagraph("Beta","The Auto Rebirth and Auto Orb is in testing")
 
 local FastAutoFarm = FarmTab:AddSection({
-	Name = "Fast AutoFarm"
+	Name = "Unlimited laps"
 })
 
 FarmTab:AddToggle({
@@ -364,6 +456,39 @@ FarmTab:AddSlider({
 		_G.StudWait = Value
 	end    
 })
+
+FarmTab:AddParagraph("IMPORTANT","You must first unlock and be in the zone for this to work")
+
+local StudAutoFarm = FarmTab:AddSection({
+	Name = "Optimized Autofarm"
+})
+
+FarmTab:AddToggle({
+	Name = "Optimized Earth",
+	Default = false,
+	Callback = function(Value)
+        _G.OptiFarm1 = Value
+        Optimethod1()
+	end    
+})   
+
+FarmTab:AddToggle({
+	Name = "Optimized Space",
+	Default = false,
+	Callback = function(Value)
+        _G.OptiFarm2 = Value
+        Optimethod2()
+	end    
+})   
+
+FarmTab:AddToggle({
+	Name = "Optimized Paradise",
+	Default = false,
+	Callback = function(Value)
+        _G.OptiFarm3 = Value
+        Optimethod3()
+	end    
+})   
 
 FarmTab:AddParagraph("IMPORTANT","You must first unlock and be in the zone for this to work")
 
@@ -623,7 +748,7 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","ANTI-AFK, StudFarm, Single/Triple egg, Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB [BETA]")
+CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Single/Triple egg, Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB")
 
 CreditsTab:AddParagraph("next feature","AutoRebrith")
 
