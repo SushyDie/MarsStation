@@ -580,7 +580,7 @@ PlayerHatch:AddToggle({
 	end    
 })
 
-PlayerHatch:AddParagraph("Note","For some reason Auto Equip Best and Auto Hatch can't work together")
+PlayerHatch:AddParagraph("Note","AutoEquipBest feature work, But do not show that they are equipped in the inventory")
 
 --Misc features
 PlayerMisc:AddTextbox({
