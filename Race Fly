@@ -1,5 +1,13 @@
 --fly race V2.1
 
+--[[
+
+█▀▀▄ █▀▀█     █▀▀▄ █▀▀█ ▀▀█▀▀     █▀▀ ▀▀█▀▀ █▀▀ █▀▀█ █░░       █▀▄▀█ █░░█     █▀▀ █▀▀ █▀▀█ ░▀░ █▀▀█ ▀▀█▀▀
+█░░█ █░░█     █░░█ █░░█ ░░█░░     ▀▀█ ░░█░░ █▀▀ █▄▄█ █░░       █░▀░█ █▄▄█     ▀▀█ █░░ █▄▄▀ ▀█▀ █░░█ ░░█░░
+▀▀▀░ ▀▀▀▀     ▀░░▀ ▀▀▀▀ ░░▀░░     ▀▀▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀       ▀░░░▀ ▄▄▄█     ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀ █▀▀▀ ░░▀░░
+
+]]
+
 --lib setup
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = false, ConfigFolder = "FlyRaceMarsStationSushy"})
@@ -187,14 +195,15 @@ end
 
 function AutoEquipB()
     while _G.AutoEquipBest == true do
-        local args = {
-            [1] = "EquipBest",
-            [2] = {
-                ["PetID"] = 0
-            }
-        }
-        
-        game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+local args = {
+    [1] = "EquipBest",
+    [2] = {
+        ["PetID"] = 0
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+
         wait(1)
     end
 end
