@@ -470,7 +470,7 @@ FarmTab:AddSlider({
 	Max = 100,
 	Default = 10,
 	Color = Color3.fromRGB(255,255,255),
-	Increment = 10,
+	Increment = 5,
 	ValueName = "Laps",
 	Callback = function(Value)
 		_G.OptiFarmValue = Value
@@ -735,11 +735,15 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Single/Triple egg, Autofarm Paradise , AutoHatch, Autocraft, Auto Rebirth [BETA], Auto ORB")
+CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Single/Triple egg, Auto ORB")
 
-CreditsTab:AddParagraph("next feature","AutoRebrith")
+CreditsTab:AddParagraph("next feature","AutoRebrith (if possible), Better AutoOrb")
 
 CreditsTab:AddParagraph("discontinued"," nothing for the moment")
+
+
+--funny things
+game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
 
 --Finish lib
 OrionLib:Init()
