@@ -47,6 +47,9 @@ _G.withST = true
 _G.OptiFarm1 = true
 _G.OptiFarm2 = true
 _G.OptiFarm3 = true
+OptiFarm1 = 0
+OptiFarm2 = 0
+OptiFarm3 = 0
 
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
@@ -57,26 +60,15 @@ function Optimethod1()
     while _G.OptiFarm1 == true do
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
         wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
+        repeat
+            OptiFarm1 = OptiFarm1 + 1
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+           wait()
+        until OptiFarm1 == _G.OptiFarmValue
+        wait()
+        OptiFarm1 = 0
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(3)
+        wait(3.2)
     end
 end
 
@@ -84,53 +76,33 @@ function Optimethod2()
     while _G.OptiFarm2 == true do
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
         wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
+        repeat
+            OptiFarm2 = OptiFarm2 + 1
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+           wait()
+        until OptiFarm2 == _G.OptiFarmValue
+        wait()
+        OptiFarm2 = 0
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(3)
+        wait(3.2)
     end
 end
+
+
 
 function Optimethod3()
     while _G.OptiFarm3 == true do
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
         wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
-        wait(0.2)
+        repeat
+            OptiFarm3 = OptiFarm3 + 1
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+           wait()
+        until OptiFarm3 == _G.OptiFarmValue
+        wait()
+        OptiFarm3 = 0
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(3)
+        wait(3.2)
     end
 end
 
@@ -491,6 +463,19 @@ FarmTab:AddToggle({
         Optimethod3()
 	end    
 })   
+
+FarmTab:AddSlider({
+	Name = "Optimized Laps",
+	Min = 10,
+	Max = 100,
+	Default = 10,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 10,
+	ValueName = "Laps",
+	Callback = function(Value)
+		_G.OptiFarmValue = Value
+	end    
+})
 
 FarmTab:AddParagraph("IMPORTANT","You must first unlock and be in the zone for this to work")
 
