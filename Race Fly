@@ -1,4 +1,4 @@
---fly race V3
+--fly race V3.1
 
 --[[
 
@@ -31,6 +31,8 @@ OrionLib:MakeNotification({
 --tp! 1 3 4 5 6 7 
 
 --variables
+
+_G.CollectOrb2 = true --beta
 
 _G.AutoEquipBest = true
 _G.Barrier = true
@@ -355,6 +357,32 @@ FarmTab:AddToggle({
 
 FarmTab:AddParagraph("Beta","The Auto Rebirth and Auto Orb is in testing")
 
+FarmTab:AddToggle({
+	Name = "better Collect Orb", --ty Trohten2#2970 for help me!! (he do everythings for this feature)
+	Default = false,
+	Callback = function(bool)
+        _G.CollectOrb2 = bool
+        while _G.CollectOrb2 == true do
+ 
+    for i, Orb in pairs(game:GetService("Workspace").Camera:GetChildren()) do
+        
+
+        if Orb:IsA("Part") and Orb.Orb.Item.Image ~= "rbxassetid://11411247929" then
+            local Player = game:GetService("Players").LocalPlayer
+            local Character = Player.Character or Player.CharacterAdded:Wait()
+            Orb.CanCollide = false 
+            Orb.CFrame = CFrame.new(Character.PrimaryPart.Position)
+           wait(0.0000000000000000000000000000000000000000000000000000000000000000000000001)
+        end
+        
+    end
+
+end
+end
+})
+
+FarmTab:AddParagraph("BETA","Still better but it's in beta")
+
 local FastAutoFarm = FarmTab:AddSection({
 	Name = "Unlimited laps"
 })
@@ -385,7 +413,7 @@ AutoFarm3()
     end
 })
 
-FarmTab:AddParagraph("IMPORTANT","enabel it after being launched by the ramp")
+FarmTab:AddParagraph("IMPORTANT","enable it after being launched by the ramp")
 
 local StudAutoFarm = FarmTab:AddSection({
 	Name = "Stud AutoFarm"
@@ -611,11 +639,11 @@ end
 })
 
 PlayerMisc:AddButton({
-	Name = "ANTI-AFK",
+	Name = "ANTI-AFK (not fixed)",
 	Callback = function()
         OrionLib:MakeNotification({
             Name = "Anti-AFK",
-            Content = "Enabel",
+            Content = "Enable",
             Image = "rbxassetid://4483345998",
             Time = 3.2
         })
@@ -693,6 +721,15 @@ game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Playe
     end
 })
 
+--[[
+PlayerMisc:AddButton({
+	Name = "Rainbow Trail ",
+	Callback = function()
+        game:GetService("Players").LocalPlayer.TrailsData.Equipped.Value = Rainbow
+    end
+})
+]]
+
 --teleport features
 local Teleport = PlayerTeleport:AddSection({
 	Name = "World"
@@ -751,3 +788,47 @@ OrionLib:Init()
 task.wait(1)
 
 --test features
+
+
+--[[
+function CollectOrb2()
+    while _G.CollectOrb2 == true do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.17645263671875, 4.188843727111816, 104713.6484375)
+    game:GetService("Workspace").Camera.Part.CFrame  = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
+    wait(1.5)
+    end
+    end
+]]
+
+
+
+
+--rbxassetid://11411247929
+
+
+--[[
+FarmTab:AddToggle({
+	Name = "Collect Orb v3",
+	Default = false,
+	Callback = function(bool)
+getgenv().CollectOrb2 = bool
+
+task.spawn(function()
+    while CollectOrb and task.wait() do
+        pcall(function()
+            for i,v in pairs(game.Workspace.Camera:GetChildren()) do
+                if v:IsA("Part") and v.Orb.Item.Image ~= "rbxassetid://11411247929" then
+                    local hrp = lp.Character.HumanoidRootPart
+                    v.Transparency = 1
+                    v.CanCollide = false
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.17645263671875, 4.188843727111816, 104713.6484375)
+                    game:GetService("Workspace").Camera.Part.CFrame  = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
+                    task.wait(.1)
+                end
+            end
+        end)
+    end
+end)
+end
+})
+]]
