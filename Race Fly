@@ -1,4 +1,4 @@
---fly race V3.1
+--fly race V3.2
 
 --[[
 
@@ -32,8 +32,7 @@ OrionLib:MakeNotification({
 
 --variables
 
-_G.CollectOrb2 = true --beta
-
+_G.CollectOrb2 = true
 _G.AutoEquipBest = true
 _G.Barrier = true
 _G.AutoFarm = false
@@ -57,6 +56,28 @@ local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 
 --function
+function CollectOrb22() --ty Trohten2#2970!
+    
+    game.Workspace.Camera.ChildAdded:Connect(function(Part)
+        if _G.CollectOrb2 == true then
+    for i, Orb in pairs(game:GetService("Workspace").Camera:GetChildren()) do
+        
+        
+        if Orb:IsA("Part") and Orb.Orb.Item.Image ~= "rbxassetid://11612382598" or Orb.Orb.Item.Image ~= "rbxassetid://11411247929" then --rbxassetid://11411247929
+            local Player = game:GetService("Players").LocalPlayer
+            local Character = Player.Character or Player.CharacterAdded:Wait()
+            Orb.CanCollide = false 
+            Orb.CFrame = CFrame.new(Character.PrimaryPart.Position)
+          wait()
+        end
+        
+    end
+    
+end
+end)
+end
+
+
 
 function Optimethod1()
     while _G.OptiFarm1 == true do
@@ -338,6 +359,15 @@ FarmTab:AddToggle({
 })
 
 FarmTab:AddToggle({
+	Name = "Free Magnet [AutoOrb]", --ty Trohten2#2970 for help me!!
+	Default = false,
+	Callback = function(Value)
+        _G.CollectOrb2 = Value
+        CollectOrb22()
+end
+})
+
+FarmTab:AddToggle({
 	Name = "Auto Rebirth",
 	Default = false,
 	Callback = function(bool)
@@ -355,33 +385,7 @@ FarmTab:AddToggle({
     end
 })
 
-FarmTab:AddParagraph("Beta","The Auto Rebirth and Auto Orb is in testing")
-
-FarmTab:AddToggle({
-	Name = "better Collect Orb", --ty Trohten2#2970 for help me!! (he do everythings for this feature)
-	Default = false,
-	Callback = function(bool)
-        _G.CollectOrb2 = bool
-        while _G.CollectOrb2 == true do
- 
-    for i, Orb in pairs(game:GetService("Workspace").Camera:GetChildren()) do
-        
-
-        if Orb:IsA("Part") and Orb.Orb.Item.Image ~= "rbxassetid://11411247929" then
-            local Player = game:GetService("Players").LocalPlayer
-            local Character = Player.Character or Player.CharacterAdded:Wait()
-            Orb.CanCollide = false 
-            Orb.CFrame = CFrame.new(Character.PrimaryPart.Position)
-           wait(0.0000000000000000000000000000000000000000000000000000000000000000000000001)
-        end
-        
-    end
-
-end
-end
-})
-
-FarmTab:AddParagraph("BETA","Still better but it's in beta")
+FarmTab:AddParagraph("Note","if the Magnet doesn't work after activation, touch an orb for refresh the script, and Auto rebirth features still in work")
 
 local FastAutoFarm = FarmTab:AddSection({
 	Name = "Unlimited laps"
@@ -772,9 +776,9 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Single/Triple egg, Auto ORB [BETA]")
+CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepass")
 
-CreditsTab:AddParagraph("next feature","AutoRebrith (if possible), Better AutoOrb")
+CreditsTab:AddParagraph("next feature","AutoRebrith (if possible)")
 
 CreditsTab:AddParagraph("discontinued"," nothing for the moment")
 
@@ -788,47 +792,3 @@ OrionLib:Init()
 task.wait(1)
 
 --test features
-
-
---[[
-function CollectOrb2()
-    while _G.CollectOrb2 == true do
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.17645263671875, 4.188843727111816, 104713.6484375)
-    game:GetService("Workspace").Camera.Part.CFrame  = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
-    wait(1.5)
-    end
-    end
-]]
-
-
-
-
---rbxassetid://11411247929
-
-
---[[
-FarmTab:AddToggle({
-	Name = "Collect Orb v3",
-	Default = false,
-	Callback = function(bool)
-getgenv().CollectOrb2 = bool
-
-task.spawn(function()
-    while CollectOrb and task.wait() do
-        pcall(function()
-            for i,v in pairs(game.Workspace.Camera:GetChildren()) do
-                if v:IsA("Part") and v.Orb.Item.Image ~= "rbxassetid://11411247929" then
-                    local hrp = lp.Character.HumanoidRootPart
-                    v.Transparency = 1
-                    v.CanCollide = false
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.17645263671875, 4.188843727111816, 104713.6484375)
-                    game:GetService("Workspace").Camera.Part.CFrame  = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
-                    task.wait(.1)
-                end
-            end
-        end)
-    end
-end)
-end
-})
-]]
