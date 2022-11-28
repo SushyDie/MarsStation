@@ -23,7 +23,7 @@ local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race
 
 OrionLib:MakeNotification({
 	Name = "Welcome!",
-	Content = "AutoFarm, AutoHatch, AutoCraft, AutoOrb, Teleport, Auto Rebirth, NoFall and more..",
+	Content = "AutoFarm, AutoHatch, AutoCraft, AutoOrb, Free Gamepass, Auto Rebirth, Safe Place and more..",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -788,6 +788,22 @@ OtherTab:AddButton({
 	end    
 })
 
+local useful = OtherTab:AddSection({
+	Name = "useful"
+})
+
+OtherTab:AddButton({
+	Name = "Teleport to a Safe Place",
+	Default = false,
+	Callback = function(Value)
+        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Transparency = 0.6
+        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.CFrame = CFrame.new(-83421, 2546, -70527)
+        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Size = Vector3.new(100, 2, 100)
+        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Color = Color3.new(254, 254, 254)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-83421, 2549, -70527)
+	end    
+})
+
 --Credit features
 CreditsTab:AddParagraph("Credit","SushyDie#8830, DM me for suggestion!")
 
@@ -804,7 +820,7 @@ CreditsTab:AddButton({
     end
 })
 
-CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepass")
+CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepass, safe place")
 
 CreditsTab:AddParagraph("next feature","AutoRebrith (if possible)")
 
