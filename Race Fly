@@ -1,4 +1,4 @@
---fly race V3.2
+--fly race V3.2.1
 
 --[[
 
@@ -32,6 +32,8 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.SelectTrail = true
+_G.AddTrail = true
 _G.CollectOrb2 = true
 _G.AutoEquipBest = true
 _G.Barrier = true
@@ -56,6 +58,10 @@ local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 
 --function
+function AddTrail()
+    game:GetService("Players").LocalPlayer.TrailsData.Equipped.Value = _G.SelectTrail
+    end
+
 function CollectOrb22() --ty Trohten2#2970!
     
     game.Workspace.Camera.ChildAdded:Connect(function(Part)
@@ -68,7 +74,6 @@ function CollectOrb22() --ty Trohten2#2970!
             local Character = Player.Character or Player.CharacterAdded:Wait()
             Orb.CanCollide = false 
             Orb.CFrame = CFrame.new(Character.PrimaryPart.Position)
-          wait()
         end
         
     end
@@ -318,6 +323,12 @@ local PlayerMisc = Window:MakeTab({
 
 local PlayerTeleport = Window:MakeTab({
 	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local OtherTab = Window:MakeTab({
+	Name = "Other",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -725,14 +736,7 @@ game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Playe
     end
 })
 
---[[
-PlayerMisc:AddButton({
-	Name = "Rainbow Trail ",
-	Callback = function()
-        game:GetService("Players").LocalPlayer.TrailsData.Equipped.Value = Rainbow
-    end
-})
-]]
+
 
 --teleport features
 local Teleport = PlayerTeleport:AddSection({
@@ -758,6 +762,30 @@ PlayerTeleport:AddButton({
 	Callback = function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
     end
+})
+
+--Other features
+local trail = OtherTab:AddSection({
+	Name = "Trails"
+})
+
+OtherTab:AddDropdown({
+	Name = "Trail",
+	Default = "White",
+	Options = {"White", "Orange", "Red", "Pink", "Purple", "blue", "Yellow", "Green", "Red & Blue", "Blue & Pink", "Orange & Pink", "Rainbow",},
+    Callback = function(Value)
+        _G.SelectTrail = Value
+        print(_G.SelectTrail)
+	end    
+})
+
+OtherTab:AddButton({
+	Name = "New Trail",
+	Default = false,
+	Callback = function(Value)
+        _G.AddTrail = Value  
+        AddTrail()
+	end    
 })
 
 --Credit features
