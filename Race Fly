@@ -339,6 +339,12 @@ local CreditsTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local Developer = Window:MakeTab({
+	Name = "Developer Tool",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 
 --AutoFarm features
 local AutoOrb= FarmTab:AddSection({
@@ -801,7 +807,26 @@ OtherTab:AddButton({
         game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Size = Vector3.new(100, 2, 100)
         game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Color = Color3.new(254, 254, 254)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-83421, 2549, -70527)
+        
 	end    
+})
+
+local useful = OtherTab:AddSection({
+	Name = "Developer Tool"
+})
+
+OtherTab:AddButton({
+	Name = "Grab Coord",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/GdmzzrDz", true))()
+    end
+})
+
+OtherTab:AddButton({
+	Name = "simple spy",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/simple%20spy%20(not%20my%20own)", true))()
+    end
 })
 
 --Credit features
@@ -825,7 +850,6 @@ CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepas
 CreditsTab:AddParagraph("next feature","AutoRebrith (if possible)")
 
 CreditsTab:AddParagraph("discontinued"," nothing for the moment")
-
 
 --funny things
 game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
