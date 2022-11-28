@@ -339,13 +339,6 @@ local CreditsTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Developer = Window:MakeTab({
-	Name = "Developer Tool",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-
 --AutoFarm features
 local AutoOrb= FarmTab:AddSection({
 	Name = "Other"
