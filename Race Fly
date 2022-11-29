@@ -616,7 +616,7 @@ PlayerMisc:AddTextbox({
 	TextDisappear = false,
 	Callback = function(Value)
 while game:IsLoaded() == false do wait() end
-local fakeplr = {["Name"] = (Value), ["UserId"] = "3742966445"}
+local fakeplr = {["Name"] = (Value), ["UserId"] = "1"}
 local lplr = game:GetService("Players").LocalPlayer
 
 local function plrthing(obj, property)
@@ -795,10 +795,18 @@ OtherTab:AddButton({
 	Name = "Teleport to a Safe Place",
 	Default = false,
 	Callback = function(Value)
-        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Transparency = 0.6
+        game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Transparency = 0.8
         game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.CFrame = CFrame.new(-83421, 2546, -70527)
         game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Size = Vector3.new(100, 2, 100)
         game:GetService("Workspace").Worlds:FindFirstChild("1").Borders.InvisRampEnd.Color = Color3.new(254, 254, 254)
+        game:GetService("Workspace").Worlds:FindFirstChild("2").Borders.InvisRampEnd.Transparency = 0.95
+        game:GetService("Workspace").Worlds:FindFirstChild("2").Borders.InvisRampEnd.CFrame = CFrame.new(-83421, 2546, -70527)
+        game:GetService("Workspace").Worlds:FindFirstChild("2").Borders.InvisRampEnd.Size = Vector3.new(120, 1.99, 120)
+        game:GetService("Workspace").Worlds:FindFirstChild("2").Borders.InvisRampEnd.Color = Color3.new(254, 254, 254)
+        game:GetService("Workspace").Worlds:FindFirstChild("3").Borders.InvisRampEnd.Transparency = 0.96
+        game:GetService("Workspace").Worlds:FindFirstChild("3").Borders.InvisRampEnd.CFrame = CFrame.new(-83421, 2546, -70527)
+        game:GetService("Workspace").Worlds:FindFirstChild("3").Borders.InvisRampEnd.Size = Vector3.new(140, 1.98, 140)
+        game:GetService("Workspace").Worlds:FindFirstChild("3").Borders.InvisRampEnd.Color = Color3.new(254, 254, 254)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-83421, 2549, -70527)
         
 	end    
@@ -838,11 +846,11 @@ CreditsTab:AddButton({
     end
 })
 
+CreditsTab:AddParagraph("Thanks for","Сips#0001 did the AutoFarm 1 method the anti fall! 07granddad made the name changer")
+
 CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepass, safe place")
 
 CreditsTab:AddParagraph("next feature","AutoRebrith (if possible)")
-
-CreditsTab:AddParagraph("discontinued"," nothing for the moment")
 
 --funny things
 game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
