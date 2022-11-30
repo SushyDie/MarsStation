@@ -96,7 +96,7 @@ end
 
 function rebirthandoptimized()
     while _G.RebirthxOpti == true do 
-        _G.RebirthxOptiwait = 5.5
+        _G.RebirthxOptiwait = 4.65
         wait(0.5)
     end
 
