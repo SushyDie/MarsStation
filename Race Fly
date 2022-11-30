@@ -694,7 +694,7 @@ PlayerMisc:AddButton({
             Image = "rbxassetid://4483345998",
             Time = 3.2
         })
-        bb = game:service'VirtualUser'
+         local bb = game:service'VirtualUser'
         while _G.antiafk == true do
             
       
