@@ -32,6 +32,7 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.Rebirth = true
 _G.SelectTrail = true
 _G.AddTrail = true
 _G.CollectOrb2 = true
@@ -53,11 +54,17 @@ _G.OptiFarm3 = true
 OptiFarm1 = 0
 OptiFarm2 = 0
 OptiFarm3 = 0
-
+getgenv().AutoRebirth = true
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 
 --function
+
+local function click(a)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,false,a,1)
+end
+
 function AddTrail()
     game:GetService("Players").LocalPlayer.TrailsData.Equipped.Value = _G.SelectTrail
     end
@@ -378,24 +385,26 @@ end
 })
 
 FarmTab:AddToggle({
-	Name = "Auto Rebirth",
+	Name = "Auto Rebirth [Working]",
 	Default = false,
 	Callback = function(bool)
-        getgenv().AutoRebirth = bool
-    
+      
+       getgenv().AutoRebirth = bool
         task.spawn(function()
             while AutoRebirth and task.wait() do
                 if lp.PlayerGui.Main.SideTabs.Big.Rebirths.Main.Unchecked.Visible then
                     click(lp.PlayerGui.Main.SideTabs.Big.Rebirths)
                     task.wait(.5)
                     click(lp.PlayerGui.Rebirths.Main.Bottom.Confirm)
+                    task.wait(.2)
+                    click(lp.PlayerGui.Rebirths.Main.Exit)
                 end
             end
         end)
     end
 })
 
-FarmTab:AddParagraph("Note","if the Magnet doesn't work after activation, touch an orb for refresh the script, and Auto rebirth features still in work")
+FarmTab:AddParagraph("Note","if the Magnet doesn't work after activation, touch an orb for refresh the script, AUTO REBIRTH WORK NOW")
 
 local FastAutoFarm = FarmTab:AddSection({
 	Name = "Unlimited laps"
@@ -441,6 +450,7 @@ FarmTab:AddToggle({
           StudFarm1()
 end
 })
+
 FarmTab:
 AddToggle({
 	Name = "Loop Space",
@@ -848,9 +858,9 @@ CreditsTab:AddButton({
 
 CreditsTab:AddParagraph("Thanks for","Сips#0001 did the AutoFarm 1 method the anti fall! 07granddad made the name changer")
 
-CreditsTab:AddParagraph("NEW","Optimized AutoFarm, StudFarm, Free Magnet gamepass, safe place")
+CreditsTab:AddParagraph("NEW","Free Magnet gamepass, safe place, AUTO REBIRTH")
 
-CreditsTab:AddParagraph("next feature","AutoRebrith (if possible)")
+CreditsTab:AddParagraph("next feature","I am still waiting for the update...")
 
 --funny things
 game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
