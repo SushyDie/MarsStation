@@ -32,6 +32,7 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.antiafk = true
 _G.RebirthxOptiwait = 3.5
 _G.RebirthxOpti = true
 _G.Rebirth = true
@@ -683,21 +684,26 @@ end
 })
 
 PlayerMisc:AddButton({
-	Name = "ANTI-AFK (not fixed)",
+	Name = "ANTI-AFK ",
 	Callback = function()
+        _G.antiafk = true
+
         OrionLib:MakeNotification({
             Name = "Anti-AFK",
             Content = "Enable",
             Image = "rbxassetid://4483345998",
             Time = 3.2
         })
-
+        bb = game:service'VirtualUser'
+        while _G.antiafk == true do
+            
       
         game:service'Players'.LocalPlayer.Idled:connect(function()
             bb:CaptureController()bb:ClickButton2(Vector2.new())
-             wait(2)
-            
-        end)        
+             
+        end)
+        wait(420)
+        end     
     end
 })
 
