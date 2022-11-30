@@ -32,6 +32,8 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.RebirthxOptiwait = 3.5
+_G.RebirthxOpti = true
 _G.Rebirth = true
 _G.SelectTrail = true
 _G.AddTrail = true
@@ -51,10 +53,13 @@ _G.withST = true
 _G.OptiFarm1 = true
 _G.OptiFarm2 = true
 _G.OptiFarm3 = true
+
 OptiFarm1 = 0
 OptiFarm2 = 0
 OptiFarm3 = 0
+
 getgenv().AutoRebirth = true
+
 local Players = game:GetService("Players")
 local lp = Players.LocalPlayer
 
@@ -89,7 +94,13 @@ end
 end)
 end
 
+function rebirthandoptimized()
+    while _G.RebirthxOpti == true do 
+        _G.RebirthxOptiwait = 5.5
+        wait(0.5)
+    end
 
+end
 
 function Optimethod1()
     while _G.OptiFarm1 == true do
@@ -102,8 +113,8 @@ function Optimethod1()
         until OptiFarm1 == _G.OptiFarmValue
         wait()
         OptiFarm1 = 0
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(4)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -5, 104659)
+        wait(_G.RebirthxOptiwait)
     end
 end
 
@@ -118,8 +129,8 @@ function Optimethod2()
         until OptiFarm2 == _G.OptiFarmValue
         wait()
         OptiFarm2 = 0
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(4)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -5, 104659)
+        wait(_G.RebirthxOptiwait)
     end
 end
 
@@ -136,8 +147,8 @@ function Optimethod3()
         until OptiFarm3 == _G.OptiFarmValue
         wait()
         OptiFarm3 = 0
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -1, 104659)
-        wait(4)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -5, 104659)
+        wait(_G.RebirthxOptiwait)
     end
 end
 
@@ -516,13 +527,22 @@ FarmTab:AddToggle({
 	end    
 })   
 
+FarmTab:AddToggle({
+	Name = "Enable if you use AutoFarm with this feature",
+	Default = false,
+	Callback = function(Value)
+        _G.RebirthxOpti = Value
+        rebirthandoptimized()
+	end    
+})   
+
 FarmTab:AddSlider({
 	Name = "Optimized Laps",
-	Min = 10,
+	Min = 2,
 	Max = 100,
-	Default = 10,
+	Default = 2,
 	Color = Color3.fromRGB(255,255,255),
-	Increment = 5,
+	Increment = 2,
 	ValueName = "Laps",
 	Callback = function(Value)
 		_G.OptiFarmValue = Value
