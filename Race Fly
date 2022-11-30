@@ -892,6 +892,7 @@ CreditsTab:AddParagraph("next feature","I am still waiting for the update...")
 game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
 
 --Finish lib
+print("This is just a Lego hack")
 OrionLib:Init()
 
 task.wait(1)
