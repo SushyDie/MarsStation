@@ -1,7 +1,7 @@
 --New
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = false, ConfigFolder = "FlyRaceMarsStationSushy"})
+local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station -> NEED NEW LOADSTRING", HidePremium = false, SaveConfig = false, ConfigFolder = "FlyRaceMarsStationSushy"})
 
 local CreditsTab = Window:MakeTab({
 	Name = "NEW",
