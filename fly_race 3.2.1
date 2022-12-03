@@ -28,10 +28,13 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
---tp! 1 3 4 5 6 7 
+--tp! 1 3 4 5 6 7 8 9
 
 --variables
 
+_G.StudFarm4 = true
+_G.OptiFarm4 = true
+_G.AutoFarm4 = true
 _G.antiafk = true
 _G.RebirthxOptiwait = 3.5
 _G.RebirthxOpti = true
@@ -58,6 +61,7 @@ _G.OptiFarm3 = true
 OptiFarm1 = 0
 OptiFarm2 = 0
 OptiFarm3 = 0
+OptiFarm4 = 0
 
 getgenv().AutoRebirth = true
 
@@ -153,6 +157,22 @@ function Optimethod3()
     end
 end
 
+function Optimethod4()
+    while _G.OptiFarm4 == true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
+        wait(0.2)
+        repeat
+            OptiFarm4 = OptiFarm4 + 1
+           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(160335.421875, 396.5972900390625, 104614.515625)
+           wait()
+        until OptiFarm4 == _G.OptiFarmValue
+        wait()
+        OptiFarm4 = 0
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(200, -5, 104659)
+        wait(_G.RebirthxOptiwait)
+    end
+end
+
 function AutoFarm()
     while _G.AutoFarm == true do 
        local tp_table = {
@@ -214,8 +234,8 @@ end
 function AutoFarm3()
     while _G.AutoFarm3 == true do 
        local tp_table = {
-            tp6 = Vector3.new(38, 20, 104731),--255.46348571777344, -0.8505219221115112, 104731.46875
-            tp7 = Vector3.new(999999999999999999999999999999999999, 100, -1836.438965), --999999999999999999999999999999999999, 100, 104716.875 
+            tp6 = Vector3.new(38, 20, 104731),
+            tp7 = Vector3.new(999999999999999999999999999999999999, 100, -1836.438965),
         }
         
         local tween_s = game:GetService('TweenService')
@@ -236,6 +256,35 @@ function AutoFarm3()
         tween_tp(tp_table.tp6)
     while _G.AutoFarm3 == true do 
         tween_tp(tp_table.tp7)
+end
+end
+end
+
+function AutoFarm4()
+    while _G.AutoFarm4 == true do 
+       local tp_table = {
+            tp8 = Vector3.new(38, 100, 104722.7109375),
+            tp9 = Vector3.new(999999999999999999999999999999999999, 100, 104722.7109375), --20.735898971557617, 4.188843727111816, 104722.7109375
+        }
+        
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function tween_tp(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                 a.Completed:Wait()
+            end
+        end
+        
+        tween_tp(tp_table.tp8)
+    while _G.AutoFarm4 == true do 
+        tween_tp(tp_table.tp9)
 end
 end
 end
@@ -266,6 +315,15 @@ function AutoHatch()
 
         game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
         wait()
+    end
+end
+
+function StudFarm4()
+    while  _G.StudFarm4 == true do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.0892791748047, 35, -894.423583984375)
+wait(0.78)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150311.890625, -4.7241532802581787, -690.9763793945312)
+wait(_G.StudWait)
     end
 end
 
@@ -430,6 +488,7 @@ _G.AutoFarm = Value
 AutoFarm() 
     end
 })
+
 FarmTab:AddToggle({
 	Name = "Space World",
 	Default = false,
@@ -445,6 +504,15 @@ FarmTab:AddToggle({
 	Callback = function(Value)
 _G.AutoFarm3 = Value 
 AutoFarm3() 
+    end
+})
+
+FarmTab:AddToggle({
+	Name = "Candyland",
+	Default = false,
+	Callback = function(Value)
+_G.AutoFarm4 = Value 
+AutoFarm4() 
     end
 })
 
@@ -479,6 +547,15 @@ FarmTab:AddToggle({
 	Callback = function(Value)
         _G.StudFarm3 = Value 
           StudFarm3()
+end
+})
+
+FarmTab:AddToggle({
+	Name = "Loop CandyLand",
+	Default = false,
+	Callback = function(Value)
+        _G.StudFarm4 = Value 
+          StudFarm4()
 end
 })
 
@@ -529,7 +606,16 @@ FarmTab:AddToggle({
 })   
 
 FarmTab:AddToggle({
-	Name = "Enable if you use AutoFarm with this feature",
+	Name = "Optimized Candyland",
+	Default = false,
+	Callback = function(Value)
+        _G.OptiFarm4 = Value
+        Optimethod4()
+	end    
+})  
+
+FarmTab:AddToggle({
+	Name = "Enable if you use AutoRebirth with this feature",
 	Default = false,
 	Callback = function(Value)
         _G.RebirthxOpti = Value
@@ -560,7 +646,7 @@ local AutoHatchegg = PlayerHatch:AddSection({
 PlayerHatch:AddDropdown({
 	Name = "Egg",
 	Default = "Beach",
-	Options = {"Beach", "Volcano", "IceCream", "Space", "Slushy", "Toy", "Alien", "Rocket", "Saturn", "Surf", "Tropical", "Hula",},
+	Options = {"Beach", "Volcano", "IceCream", "Space", "Slushy", "Toy", "Alien", "Rocket", "Saturn", "Surf", "Tropical", "Hula", "Chocolate", "Gummy", "Bubblegum",},
     Callback = function(Value)
         _G.SelectEgg = Value
         print(_G.SelectEgg)
@@ -603,6 +689,12 @@ PlayerHatch:AddButton({
          _G.SelectEgg == "Tropical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-40.0261116027832, 5.025054454803467, 104799.40625)
          elseif
          _G.SelectEgg == "Hula" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.852935791015625, 5.02518892288208, 104798.5859375)
+         elseif
+         _G.SelectEgg == "Chocolate" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(15.644947052001953, 5.239333152770996, -201921.9375)
+         elseif
+         _G.SelectEgg == "Gummy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2.376744031906128, 5.239426612854004, -201922.1875)
+         elseif
+         _G.SelectEgg == "Bubblegum" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-20.152420043945312, 5.239375114440918, -201920.984375)
         end
     end 
 })
@@ -796,6 +888,13 @@ PlayerTeleport:AddButton({
 	Name = "Paradise world",
 	Callback = function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62.11297607421875, 4.188846111297607, 104727)
+    end
+})
+
+PlayerTeleport:AddButton({
+	Name = "CandyLand",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.95771789550781, 4.40300178527832, -201992.1875)
     end
 })
 
