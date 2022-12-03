@@ -64,7 +64,7 @@ Login.MouseButton1Click:Connect(function()
 	if EnterKey.Text == "MarsIsGood" then
 		FrameMarsStation.Visible = false
 		wait(0.2)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/Race%20Fly"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/fly_race%203.2.1", true))()
 	end
 end)
 
