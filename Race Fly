@@ -1,1 +1,31 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/Race%20Fly%22))()
+--New
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = false, ConfigFolder = "FlyRaceMarsStationSushy"})
+
+local CreditsTab = Window:MakeTab({
+	Name = "NEW",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+CreditsTab:AddParagraph("Credit","The script has changed loadstring, look in this discord")
+
+CreditsTab:AddButton({
+	Name = "Copy The discord",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Copied!",
+            Content = "Copied with success",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+        setclipboard("https://discord.gg/v6Jwu2PnCE")
+    end
+})
+
+CreditsTab:AddParagraph("NEW","join this server and do the rekonise thing again. There is a key system, the key is also marked in the discord! key: MarsIsGood")
+
+CreditsTab:AddParagraph("why?","So many people are taking the script and leave..")
+
+CreditsTab:AddParagraph("note","check Self Role")
