@@ -1,15 +1,12 @@
--- Gui to Lua
--- Version: 3.2
-
 -- Instances:
 
 local ScreenGuiMarsStation = Instance.new("ScreenGui")
 local FrameMarsStation = Instance.new("Frame")
 local ImageLabel = Instance.new("ImageLabel")
+local Close = Instance.new("TextButton")
 local Login = Instance.new("TextButton")
 local EnterKey = Instance.new("TextBox")
 local CopyDiscord = Instance.new("TextButton")
-local Close = Instance.new("TextButton")
 
 --Properties:
 
@@ -35,11 +32,29 @@ ImageLabel.Position = UDim2.new(0.327431649, 0, 0.281481475, 0)
 ImageLabel.Size = UDim2.new(0, 661, 0, 353)
 ImageLabel.Image = "rbxassetid://11721610717"
 
+Close.Name = "Close"
+Close.Parent = ImageLabel
+Close.AnchorPoint = Vector2.new(0.5, 0.5)
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.BackgroundTransparency = 1.000
+Close.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Close.LayoutOrder = -1
+Close.Position = UDim2.new(0.924183786, 0, 0.186907619, 0)
+Close.Size = UDim2.new(0.030024128, 0, 0.0615780689, 0)
+Close.Selected = true
+Close.Font = Enum.Font.SourceSans
+Close.Text = ""
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 14.000
+Close.MouseButton1Click:Connect(function()
+	FrameMarsStation.Visible = false
+end)
+
 Login.Name = "Login"
-Login.Parent = FrameMarsStation
+Login.Parent = ImageLabel
 Login.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Login.BackgroundTransparency = 1.000
-Login.Position = UDim2.new(0.550153434, 0, 0.438271612, 0)
+Login.Position = UDim2.new(0.643950701, 0, 0.407110155, 0)
 Login.Size = UDim2.new(0, 169, 0, 34)
 Login.Font = Enum.Font.SourceSans
 Login.Text = ""
@@ -49,18 +64,17 @@ Login.MouseButton1Click:Connect(function()
 	if EnterKey.Text == "MarsIsGood" then
 		FrameMarsStation.Visible = false
 		wait(0.2)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/fly_race%203.2.1"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SushyDie/MarsStation/main/Race%20Fly"))()
 	end
 end)
 
-
 EnterKey.Name = "EnterKey"
-EnterKey.Parent = FrameMarsStation
+EnterKey.Parent = ImageLabel
 EnterKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 EnterKey.BackgroundTransparency = 1.000
 EnterKey.BorderColor3 = Color3.fromRGB(27, 42, 53)
 EnterKey.BorderSizePixel = 0
-EnterKey.Position = UDim2.new(0.54232049, 0, 0.369135827, 0)
+EnterKey.Position = UDim2.new(0.631579161, 0, 0.241657078, 0)
 EnterKey.Size = UDim2.new(0, 189, 0, 38)
 EnterKey.Font = Enum.Font.Unknown
 EnterKey.Text = ""
@@ -68,10 +82,10 @@ EnterKey.TextColor3 = Color3.fromRGB(221, 221, 221)
 EnterKey.TextSize = 14.000
 
 CopyDiscord.Name = "CopyDiscord"
-CopyDiscord.Parent = FrameMarsStation
+CopyDiscord.Parent = ImageLabel
 CopyDiscord.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 CopyDiscord.BackgroundTransparency = 1.000
-CopyDiscord.Position = UDim2.new(0.552111685, 0, 0.495061725, 0)
+CopyDiscord.Position = UDim2.new(0.651960373, 0, 0.531888902, 0)
 CopyDiscord.Size = UDim2.new(0, 164, 0, 34)
 CopyDiscord.Font = Enum.Font.SourceSans
 CopyDiscord.Text = ""
@@ -81,19 +95,4 @@ CopyDiscord.MouseButton1Click:Connect(function()
 	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "copied!"; Text = "Join Discord"; Icon = "";})
 	wait(0.2)
 	setclipboard("https://discord.gg/v6Jwu2PnCE")
-end)
-
-Close.Name = "Close"
-Close.Parent = FrameMarsStation
-Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Close.BackgroundTransparency = 1.000
-Close.BorderColor3 = Color3.fromRGB(27, 42, 53)
-Close.Position = UDim2.new(0.641400456, 0, 0.334567904, 0)
-Close.Size = UDim2.new(0, 16, 0, 16)
-Close.Font = Enum.Font.SourceSans
-Close.Text = ""
-Close.TextColor3 = Color3.fromRGB(0, 0, 0)
-Close.TextSize = 14.000
-Close.MouseButton1Click:Connect(function()
-	FrameMarsStation.Visible = false
 end)
