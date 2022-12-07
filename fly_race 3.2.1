@@ -17,6 +17,43 @@
 youtube channel: https://www.youtube.com/channel/UC-Zj507pHUJMiUcZuL0K5Iw
 ]]
 
+local PlayerId = game.Players.LocalPlayer.UserId
+
+local NotAcceptedPlayers = {PlayerId}
+
+print (PlayerId)
+print (NotAcceptedPlayers)
+
+Tonplayer = game.Players.LocalPlayer.UserId
+
+local Accepted = true
+
+Lbozo = 0
+
+for i, Id in pairs(NotAcceptedPlayers) do
+   if game.Players.LocalPlayer.UserId == 1 then
+      Accepted = false
+      print("blacklisted")
+
+repeat
+    Lbozo = Lbozo + 1
+local args = {
+    [1] = "SushyDie On Top",
+    [2] = "All"
+}
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+wait(0.001)
+until Lbozo == 10
+
+game.Players.LocalPlayer:Kick("You get banned of this script by SushyDie#8830. Fuck You.")
+
+   end
+end
+
+if Accepted == true then
+ print("Whitelisted")
+
 --lib setup
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({IntroText = "Orion x Sushy",Name = "Fly Race | Mars Station", HidePremium = false, SaveConfig = false, ConfigFolder = "FlyRaceMarsStationSushy"})
@@ -983,9 +1020,9 @@ CreditsTab:AddButton({
 
 CreditsTab:AddParagraph("Thanks for","Сips#0001 did the AutoFarm 1 method the anti fall! 07granddad made the name changer")
 
-CreditsTab:AddParagraph("NEW","Free Magnet gamepass, safe place, AUTO REBIRTH")
+CreditsTab:AddParagraph("NEW","Candyland Update, safe place, AUTO REBIRTH")
 
-CreditsTab:AddParagraph("next feature","I am still waiting for the update...")
+CreditsTab:AddParagraph("next feature","unlimited laps a little bit better")
 
 --funny things
 game:GetService("Workspace").Leaderboards["🤑 Robux Spent"].Other.TabletMainPart.SurfaceGui.Frame.TextLabel.Text = "Most L players of all time"
@@ -995,5 +1032,5 @@ print("This is just a Lego hack")
 OrionLib:Init()
 
 task.wait(1)
-
+end
 --test features
