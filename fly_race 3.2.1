@@ -69,6 +69,7 @@ OrionLib:MakeNotification({
 
 --variables
 
+_G.AutoCraftFrost = true
 _G.StudFarm4 = true
 _G.OptiFarm4 = true
 _G.AutoFarm4 = true
@@ -342,6 +343,22 @@ game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(
     end
 end
 
+
+
+function AutoCraftFrosted()
+    while _G.AutoCraftFrost == true do
+    local args = {
+        [1] = "Craft",
+        [2] = {
+            ["PetID"] = 0
+        }
+    }
+    
+game:GetService("ReplicatedStorage").RemoteEvents.PetActionRequest:InvokeServer(unpack(args))
+        wait(1)
+    end
+end
+
 function AutoHatch()
     while _G.AutoHatch == true do
 
@@ -510,6 +527,20 @@ FarmTab:AddToggle({
         end)
     end
 })
+
+--[[
+PlayerHatch:AddButton({
+	Name = "Redeem",
+	Callback = function()
+        click(lp.PlayerGui.Main.SideTabs.Small.Codes)
+        wait(0.1)
+        click(lp.PlayerGui.Codes.Main.Bottom.Confirm)
+    end
+})
+--]]
+
+
+
 
 FarmTab:AddParagraph("Note","if the Magnet doesn't work after activation, touch an orb for refresh the script, AUTO REBIRTH WORK NOW")
 
@@ -755,6 +786,15 @@ PlayerHatch:AddToggle({
 	Callback = function(Value)
         _G.AutoCraft = Value  
         AutoCraft()
+	end    
+})
+
+PlayerHatch:AddToggle({
+	Name = "Auto Craft Frosted",
+	Default = false,
+	Callback = function(Value)
+        _G.AutoCraftFrost = Value  
+        AutoCraftFrosted()
 	end    
 })
 
