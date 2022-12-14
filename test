@@ -1,0 +1,117 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "1+ Jump Every Second", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.AutoWin = true -- the variable 
+_G.AutoRebirth = true
+_G.AutoHatch = true
+_G.Egg = true
+_G.teleportEgg = true
+
+
+function teleportEgg()
+		if _G.Egg == "Noob" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19.629241943359375, 0.44275182485580444, -98.40385437011719) end
+		if _G.Egg == "Starter" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-31.642894744873047, 0.44275182485580444, -97.67359924316406) end
+		if _G.Egg == "Rare" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-42.3105583190918, 0.44275182485580444, -97.19914245605469) end
+		if _G.Egg == "Pro" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2036.2725830078125, 0.44275182485580444, -97.2998046875) end
+		if _G.Egg == "Epic" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4036.83544921875, 0.44275182485580444, -98.62098693847656) end
+		if _G.Egg == "Legendary" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(6036.22265625, 0.44275182485580444, -98.37561798095703) end
+		if _G.Egg == "Mythical" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8036.54931640625, 0.44275182485580444, -98.5217514038086) end
+		if _G.Egg == "Goldy" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(10253.2255859375, 0.44275182485580444, -96.97695922851562) end
+		if _G.Egg == "Dark" then game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(12301.0625, 0.44275182485580444, -96.46475982666016) end
+	end
+
+
+function AutoHatch()
+    while _G.AutoHatch == true do
+local args = {
+    [1] = _G.Egg,
+    [2] = "Single"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.EggOpened:InvokeServer(unpack(args))
+wait()
+    end
+end
+
+
+function AutoRebirth()
+while _G.AutoRebirth == true do
+	game:GetService("ReplicatedStorage").RebirthEvent:FireServer()
+	wait(.3)
+end
+end
+
+function AutoWin()
+while _G.AutoWin == true do --in While do end, you need "==" to differentiate. "=" is for set, and "==" is for compare.
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(12313.005859375, 45658.421875, 212.5721893310547)
+    wait(.3)
+end
+end
+
+local Win = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local Section = Win:AddSection({
+    Name = "AutoWin"
+})
+
+Win:AddToggle({
+    Name = "AutoWin",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoWin = Value --we set the variable to "Value" before calling the function (lazy for explain but you will understand with experience)
+        AutoWin() --and call the function. the function and the variable must be always on top, before using them in the code in a scirpt
+end
+})
+
+Win:AddToggle({
+    Name = "AutoRebirth",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoRebirth = Value
+        AutoRebirth()
+    end
+})
+
+local Eggs = Window:MakeTab({
+	Name = "Eggs",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Eggs:AddSection({
+	Name = "Egg"
+})
+
+Eggs:AddDropdown({
+	Name = "Choose Egg",
+	Default = "Noob Egg",
+	Options = {"Noob", "Starter", "Rare", "Pro", "Epic", "Legendary", "Mythical", "Godly", "Dark"},
+	Callback = function(Value)
+	_G.Egg = Value
+	end    
+})
+
+Eggs:AddToggle({
+	Name = "AutoHatch",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoHatch = Value
+		AutoHatch()
+	end    
+})
+
+Eggs:AddButton({
+	Name = "Teleport to selected egg",
+	Callback = function()
+		teleportEgg()
+	end
+})
+
+-- with what's underneath, if you re-run the script, all the things that are running with this library will stop [always put it at the end]
+OrionLib:Init()
+
+task.wait(1) 
