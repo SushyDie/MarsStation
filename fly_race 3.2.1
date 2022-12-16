@@ -27,11 +27,12 @@ print (NotAcceptedPlayers)
 Tonplayer = game.Players.LocalPlayer.UserId
 
 local Accepted = true
+local BuserID = 2399386498
 
-Lbozo = 2399386498
+Lbozo = 0
 
 for i, Id in pairs(NotAcceptedPlayers) do
-   if game.Players.LocalPlayer.UserId == 1 then
+   if game.Players.LocalPlayer.UserId == BuserID then
       Accepted = false
       print("blacklisted")
 
